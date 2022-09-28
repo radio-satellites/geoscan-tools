@@ -16,7 +16,7 @@ Next, use this tool to decode the image from the hex demodulated by SoundModem!
 python geoscan_proc.py
 ``` 
 
-The GEOSCAN raw option dictates whether or not to strip off the SoundModem header (see below). The cut option is used for denoting to cu
+The GEOSCAN raw option dictates whether or not to strip off the SoundModem header (see below). The cut option is used for denoting to cut a header. See the section below for some details
 
 # Technical details
 
