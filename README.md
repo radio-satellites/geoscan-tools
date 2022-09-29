@@ -21,10 +21,12 @@ The GEOSCAN raw option dictates whether or not to strip off the SoundModem heade
 # Technical details
 
 Essentially, first off we strip off a header issued by the decoding program. If GetKISS+ is used, a header of 47 is present. If SoundModem is used, set a length of 16 (in some rare cases, 10 might work too)!
+
+A GetKISS+ file has a header
 ```
 2022-09-20 20:11:40.530 | len: 064 |
 ``` 
-is present.
+
 Otherwise (if using the "monitor log file" function in SoundModem), a header of 
 ```
 1: [GEOSCAN] [18:03:49R]
