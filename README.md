@@ -5,7 +5,7 @@ Some tools to process data from the GEOSCAN satellite.
 
 # Intro
 
-GEOSCAN transmits in a 9600baud mode JPEG images of the Earth which can be received using a 70cm yagi, and subsequently decoded using this tool. A 6-element yagi antenna should work well. 
+GEOSCAN transmits in a 9600baud mode JPEG images of the Earth which can be received using a 70cm yagi and subsequently decoded using this tool. A 6-element yagi antenna should work rather well as a budget receiving antenna. 
 
 # How-to
 While receiving the signal, set your SDR mode to WFM. A special version of SoundModem for GEOSCAN may be downloaded at http://uz7.ho.ua/geoscan.zip. To be successful, use a virtual audio cable!! Stereo Mix **does not work**! Soundmodem will decode the packets. Before starting to decode, click "Open Monitor Log file." When the dump is finished, click "Close Monitor Log file."
@@ -43,3 +43,7 @@ Then, I noticed a fixed almost always repeating sequence
 This could be telemetry or something unknown right now. Rather, we need to cut the sequence out, because with it the JPEG will not decode correctly. 
 
 After this, we just convert everything to hexadecimal, and then write it to a JPEG. 
+
+# C2B
+
+This super-simple script converts the hexadecimal to binary to be analyzed with different tools. 
