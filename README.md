@@ -16,7 +16,21 @@ Next, use this tool to decode the image from the hex demodulated by SoundModem!
 python geoscan_proc.py
 ``` 
 
-The GEOSCAN raw option dictates whether or not to strip off the SoundModem header (see below). The cut option is used for denoting to cut a header. See the section below for some details
+Use case example: GetKISS+
+
+```
+Input file:geoscan-edelveis.txt
+Output file:output.jpg
+Write raw JPEG (for corrupt/incomplete images)?y
+Characters to remove (16 raw soundmodem, 47 for GetKISS+):47
+Wrote raw JPEG!
+``` 
+
+For soundmodem, the same options can be used with a small modification. "Characters to remove" should be set to 16. 
+
+A NOTE ON RAW JPEGs:
+
+If you have a corrupt image (e.g missing packets), writing a raw JPEG might help remedy this problem a bit and allow the program to not crash when processing!
 
 # Technical details
 
