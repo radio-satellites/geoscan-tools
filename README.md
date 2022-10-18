@@ -61,3 +61,12 @@ After this, we just convert everything to hexadecimal, and then write it to a JP
 # C2B
 
 This super-simple script converts the hexadecimal to binary to be analyzed with different tools. 
+
+# Note for UNIX-like systems
+When running on a UNIX system, [PE0SAT](https://community.libre.space/u/PE0SAT) found that it is necessary to run 
+```
+dos2unix geoscan_proc.py
+```
+in order to run without errors. 
+
+73!
