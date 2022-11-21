@@ -7,7 +7,7 @@ import deframer
 
 in_file = input("Input file:")
 out_file = input("Output file:")
-raw_j = input("Write raw JPEG (for corrupt/incomplete images)?")
+raw_j = input("Write raw JPEG (for corrupt/incomplete images, or for multiple files)?")
 characters_to_remove = int(input("Characters to remove (16 raw soundmodem, 47 for GetKISS+):"))
 
 def process_from_hex(in_hex,output):
@@ -21,6 +21,8 @@ f_joined = process_image.process(in_file,characters_to_remove)
 
 if deframer.mult_files(f_joined) == True:
     print("Detected multiple files downlinked...")
+    proc_im = input("Process the images into JPEG (and binary)?")
+    
     deframed = deframer.deframe(f_joined)
     no_files = len(deframed)
     print(str(no_files)+" files have been detected")
@@ -30,6 +32,11 @@ if deframer.mult_files(f_joined) == True:
         f = open(out_file+str(i)+".txt",'w')
         f.write(deframed[i])
         f.close()
+        if proc_im == "y" or proc_im == "Y" or proc_im == "Yes" or proc_im == "yes":
+            try:
+                process_from_hex(deframed[i],out_file+str(i)+".jpg")
+            except:
+                print("This is not an image.")
         print("Processed "+str(i+1)+" out of "+str(no_files))
 else:
     print("Single JPEG file only")
