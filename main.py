@@ -27,7 +27,7 @@ if deframer.mult_files(f_joined)[0] == True:
     process_image.process_multiple(f_joined,out_file)
     
 else:
-    print("Single JPEG file only")
+    print("Single file only")
     #process_from_hex(f_joined,out_file)
     process_image.process_multiple(f_joined,out_file)
 

@@ -37,7 +37,7 @@ def deframe(in_file,outputfile):
                 file_counter = file_counter + 1
                 outfile.close()
                 if process_image.check_valid(outfile.name) == True:
-                    print("Finished processing file "+str(file_counter - 1)) #voodoo!
+                    print("Finished processing file "+str(file_counter)) #voodoo!
                 else:
                     print("Writing INVALID JPEG "+str(outfile.name))
 
