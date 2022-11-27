@@ -2,13 +2,14 @@ import io
 import os
 from PIL import Image
 import binascii
+import deframer
 
 def process(in_file,characters_to_remove):
     no_header = []
     bad_words = ["1: [GEOSCAN]"]
     with open(in_file) as dumpfile:
         for line in dumpfile:
-            if not any(bad_word in line for bad_word in bad_words):
+            if not any(bad_word in line for bad_word in bad_words): #tnx stackoverflow =D
                 no_header.append(line)
 
 
@@ -27,7 +28,9 @@ def process(in_file,characters_to_remove):
     for i in range(len(f_lines_joined)):
         f_joined = f_joined+f_lines_joined[i]
 
-    f_joined = f_joined.replace("\n","").replace("\r","")
+    #f_joined = f_joined.replace("\n","").replace("\r","")
+    f_joined = f_joined.split("\n")
+    f_joined = list(filter(None, f_joined))
     return f_joined
 def process_RAW(f_joined,out_file):
     o = open(out_file,'wb')
@@ -41,4 +44,14 @@ def process_image(f_joined,out_file):
     image_geoscan = Image.open(io.BytesIO(image_data))
     image_geoscan.save(out_file)
     print("Done!")
+
+def process_multiple(f_joined,outfile):
+    deframer.deframe(f_joined,outfile)
+
+def check_valid(filename):
+    try:
+        Image.open(filename)
+        return True
+    except:
+        return False
     
