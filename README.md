@@ -3,6 +3,7 @@ Some tools to process data from the GEOSCAN satellite (wip).
 ![output](https://user-images.githubusercontent.com/114111180/192885196-7b54cd63-fa24-4f51-977f-e8b944e0417c.jpg)
 
 ***NOTE: There is news that GEOSCAN now sometimes transmits multiple images per file. The program cannot handle this right now! I'm working on it :)***
+***UPDATE: Yes it can now =D***
 # Intro
 
 GEOSCAN transmits in a 9600baud mode JPEG images of the Earth which can be received using a 70cm yagi and subsequently decoded using this tool. A 6-element yagi antenna should work rather well as a budget receiving antenna. 
